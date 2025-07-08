@@ -42,6 +42,7 @@ int main(){
         cin>>choice;
         switch(choice){
             case(0):
+                sm.exitSystem();
                 break;
             case(1):
                 break;
