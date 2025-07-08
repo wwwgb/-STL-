@@ -22,15 +22,38 @@ void SpeechManager::show_menu(){
     cout << endl;
 }
 
-
+void SpeechManager::exitSystem()
+{
+cout << "欢迎下次使用" << endl;
+system("pause");
+exit(0);
+}
 
 
 int main(){
-   SpeechManager sm;
 
-   sm.show_menu();
+    SpeechManager sm;
 
-   system("pause");
-   
-   return 0;
+    int choice = 0;
+
+    while(1){
+        sm.show_menu();
+        cout<<"请输入您的选择："<<endl;
+        cin>>choice;
+        switch(choice){
+            case(0):
+                break;
+            case(1):
+                break;
+            case(2):
+                break;
+            case(3):
+                break;
+            default:
+                system("cls");
+                break;
+        }
+    }
+    system("pause");
+    return 0;
 }
