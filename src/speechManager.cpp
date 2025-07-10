@@ -1,4 +1,5 @@
 #include<iostream>
+#include<algorithm>
 #include"../include/speechManager.h"
 
 using namespace std;
@@ -13,7 +14,7 @@ SpeechManager::~SpeechManager(){
 }
 
 void SpeechManager::initSpeech(){
-    this->m_index = 0; // 初始化比赛轮数
+    this->m_index = 1; // 初始化比赛轮数
     this->v1.clear();
     this->v2.clear();
     this->vectory.clear();
@@ -38,6 +39,44 @@ void SpeechManager::createSpeaker(){
     //选手编号 以及对应的选手 存放到map容器中
     this->m_Speaker.insert(make_pair(i + 10001, sp));
     }
+}
+
+void SpeechManager::startSpeech(){
+    //第一轮比赛
+    //1、抽签
+    this->speechDraw();
+    //2、比赛
+    //3、显示晋级结果
+    //第二轮比赛
+    //1、抽签
+    //2、比赛 
+    //3、显示最终结果
+    //4、保存分数
+}
+
+void SpeechManager::speechDraw(){
+    cout<<"第"<<this->m_index<<"轮比赛正在抽签"<<endl;
+    cout<<"--------------------"<<endl;
+    cout<<"抽签结果如下："<<endl;
+
+    if(this->m_index == 1){
+        random_shuffle(this->v1.begin(),this->v1.end());
+        for(auto it : v1){
+            cout << it <<" ";
+        }
+        cout << endl;
+    }
+    else{
+        random_shuffle(this->v2.begin(),this->v2.end());
+        for(auto it : v2){
+            cout << it << " ";
+        }
+        cout << endl;
+    }
+
+    cout<<"---------------------"<<endl;
+    system("pause");
+    cout<<endl;
 }
 
 void SpeechManager::show_menu(){
@@ -79,6 +118,7 @@ int main(){
                 sm.exitSystem();
                 break;
             case(1):
+                sm.startSpeech();
                 break;
             case(2):
                 break;

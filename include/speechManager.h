@@ -30,4 +30,8 @@ public:
 
     void createSpeaker();
 
+    void startSpeech();
+
+    void speechDraw();
+
 };
